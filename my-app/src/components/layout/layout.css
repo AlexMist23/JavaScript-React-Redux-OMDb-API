@@ -1,0 +1,76 @@
+#layout {
+    height: fit-content;
+    background-color: rgb(46, 46, 46);
+    margin: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo a {
+    display: block;
+    font-size: 1.2em;
+    width: max-content;
+    margin: 0.8em;
+    cursor: default;
+    text-shadow: 0.1em 0.1em 1em black;
+    white-space:nowrap;
+}
+
+
+header ul {
+    display: flex;
+    justify-self: flex-end;
+    background-color: rgb(0, 0, 0);
+    margin: 0.8em;
+    padding: 0;
+}
+
+header li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+
+header a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 1.2em 1.2em;
+    font-size: 0.8em;
+}
+
+header a:hover {
+    background-color: rgb(43, 43, 43);
+}
+
+#no-page {
+    font-family: monospace;
+    font-size: 6em;
+    color: rgb(167, 102, 102);
+    rotate: 12.5deg;
+    margin: 2em auto;
+    text-align: center;
+
+}
+
+#page {
+    display: flex;
+}
+
+
+#logo a{
+    font-size: 1.4em;
+    padding: 0.4em;
+
+}
