@@ -1,40 +1,44 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import API_KEY from './API_KEY'
 
 const initialState = {
     isFetching: false,
-    isFetched: false,
-    FetchSucced: null,
     movies: null,
     fetchErr: null
 }
 
+export const fetchSearch = createAsyncThunk(
+    'search/fetchSearch',
+    async (searchValue) => {
+        const response = await fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=${API_KEY}`)
+        return response.json()
+    }
+)
+
 const searchSlice = createSlice({
     name: "search",
     initialState,
-    reducers: {
-        fetchStart: () => ({
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(fetchSearch.pending, () => ({
             ...initialState,
-            isFetching: true
-        }),
-        fetchSucced: (state, {payload}) => ({
+            isFetching: false,
+        }))
+        builder.addCase(fetchSearch.fulfilled, (state, {payload}) => ({
             ...state,
-            isFetched: true,
-            fetchSucced: true,
-            movies: payload
-        }),
-        fetchFailed: (state, {payload}) => ({
-            ...state,
-            isFetched: true,
-            fetchSucced: false,
-            fetchErr: payload
-        })
+            isFetching: false,
+            movies: payload.Search
 
+        }))
+        builder.addCase(fetchSearch.rejected, (state, {payload}) => ({
+            ...state,
+            isFetching: false,
+            fetchErr: payload
+        }))
     }
+
+
 })
 
-
-export const searchFetch = () =>{
-    console.log('FETCHING')
-}
-export const { change } = searchSlice.actions
+export const { } = searchSlice.actions
 export default searchSlice.reducer

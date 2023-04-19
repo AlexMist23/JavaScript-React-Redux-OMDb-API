@@ -1,13 +1,14 @@
 import React from "react";
 
-const Movie = ({title, year, imdbID, type, poster}) =>{
+const Movie = ({ title, year, imdbID, type, poster }) => {
     return (
         <div className="search-movie">
+            <div className="movie-img-cont">
+                <img src={poster} />
+            </div>
             <p>{title}</p>
             <p>{year}</p>
-            <p>{imdbID}</p>
-            <p>{type}</p>
-            <p>{poster}</p>
+
         </div>
     )
 }

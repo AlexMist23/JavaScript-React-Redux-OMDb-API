@@ -53,3 +53,31 @@
 #search-bar input:focus-visible {
     outline: solid 0.14em rgb(82, 82, 82);
 }
+
+#search-movies{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em;
+    justify-content:center
+}
+
+.search-movie{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 2em;
+    background-color: black;
+}
+
+.search-movie p{
+    margin: 0;
+    width: 167px;
+}
+.search-movie img{
+    width: 100%;
+}
+.movie-img-cont{
+    height: 227;
+    width: 167px;
+
+}

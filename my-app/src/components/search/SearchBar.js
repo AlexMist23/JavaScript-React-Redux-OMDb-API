@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
+const formInitialState = { title: '' }
+
 const SearchBar = ({fetchSearch}) => {
-    const [form, setForm] = useState({ title: '' })
+    const [form, setForm] = useState(formInitialState )
     const changeHandler = e => {
         setForm(prev => ({
             ...prev,
@@ -10,6 +12,8 @@ const SearchBar = ({fetchSearch}) => {
     }
     const submitHandler = e => {
         e.preventDefault()
+        fetchSearch(form.title)
+        setForm(formInitialState)
     }
     return (
         <div id="search-bar">
